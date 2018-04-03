@@ -17,7 +17,8 @@ function Request:new()
 
     -- url:http://zj.com:9210/di0000/111?aa=xx
     local instance = {
-        uri = ngx.var.uri,                  -- /di0000/111
+        --uri = ngx.var.uri,                  -- /di0000/111
+        uri = ngx.re.match(ngx.var.request_uri, "^[^?]+")[0]
         -- req_uri = ngx.var.request_uri,      -- /di0000/111?aa=xx
         -- req_args = ngx.var.args,            -- aa=xx
         -- params = params,
